@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=Playfair+Display:wght@500;700&display=swap");
+
+:root {
+  --bg1: #0f172a;
+  --bg2: #020617;
+  --glass: rgba(255,255,255,.08);
+
+  --primary: #6366f1;
+  --accent: #22d3ee;
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+
+  --radius-lg: 24px;
+  --radius-md: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui;
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at 10% 20%, #1e293b 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, #020617 0%, transparent 40%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  min-height: 100vh;
+}
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(20px);
+  background: rgba(2,6,23,.6);
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 60px;
+}
+
+.nav-links a {
+  margin-left: 30px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.nav-links a:hover {
+  color: white;
+}
+
+/* HERO */
+.hero-overlay h1 {
+  font-family: "Playfair Display", serif;
+}
+
+/* GRID */
+.grid {
+  padding: 80px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+  gap: 50px;
+}
+
+/* CARD */
+.card {
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  transition: all .4s cubic-bezier(.4,0,.2,1);
+  border: 1px solid rgba(255,255,255,.06);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 80px rgba(0,0,0,.5);
+}
+
+.card img {
+  height: 240px;
+  width: 100%;
+  object-fit: contain;
+  transition: transform .5s ease;
+}
+
+.card:hover img {
+  transform: scale(1.1);
+}
+
+.card h3 {
+  font-size: 16px;
+  height: 42px;
+  overflow: hidden;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 18px;
+}
+
+/* BUTTON */
+button {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button:hover {
+  opacity: .9;
+}
+
+/* DETAIL */
+.detail {
+  padding: 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+
+/* CART */
+.cart {
+  padding: 80px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
