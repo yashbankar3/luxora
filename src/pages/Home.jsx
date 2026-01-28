@@ -16,10 +16,7 @@ export default function Home() {
   }, []);
 
   const renderedProducts = useMemo(
-    () =>
-      products.map(product => (
-        <ProductCard key={product.id} product={product} />
-      )),
+    () => products.map(p => <ProductCard key={p.id} product={p} />),
     [products]
   );
 
@@ -28,11 +25,11 @@ export default function Home() {
       <Navbar />
       <HeroCarousel />
 
+      <h2 className="section-title">Popular Collection</h2>
+
       <section className="grid">
         {loading
-          ? Array.from({ length: 8 }).map((_, i) => (
-              <Skeleton key={i} />
-            ))
+          ? Array.from({ length: 8 }).map((_, i) => <Skeleton key={i} />)
           : renderedProducts}
       </section>
     </>
