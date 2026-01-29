@@ -1,18 +1,27 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import ProductDetails from "./pages/ProductDetails";
-import Cart from "./pages/Cart";
+import { Routes, Route } from "react-router-dom";
 
-function App() {
+import Navbar from "./components/Navbar";
+
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import OtpVerify from "./pages/OtpVerify";
+import Products from "./pages/Products";
+import SingleProduct from "./pages/SingleProduct";
+
+export default function App() {
   return (
-    <BrowserRouter>
+    <>
+      <Navbar />
+
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/product/:id" element={<ProductDetails />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/verify-otp" element={<OtpVerify />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/product/:id" element={<SingleProduct />} />
       </Routes>
-    </BrowserRouter>
+    </>
   );
 }
-
-export default App;

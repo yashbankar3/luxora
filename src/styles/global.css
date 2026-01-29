@@ -150,3 +150,23 @@ button:hover {
   padding-bottom: 16px;
   margin-bottom: 20px;
 }
+.nav-link {
+  position: relative;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: black;
+  transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}

@@ -1,30 +1,26 @@
 import { Link } from "react-router-dom";
-import { useCart } from "../context/CartContext";
-import { useWishlist } from "../context/WishlistContext";
+import { motion } from "framer-motion";
 
 export default function ProductCard({ product }) {
-  const { add } = useCart();
-  const { wishlist, toggle } = useWishlist();
-
-  const liked = wishlist.find(p => p.id === product.id);
-
   return (
-    <div className="card">
-      <img src={product.image} loading="lazy" />
-      <h3>{product.title}</h3>
-      <p>${product.price}</p>
-
-      <div className="actions">
-        <Link to={`/product/${product.id}`}>View</Link>
-        <button onClick={() => add(product)}>Add</button>
+    <motion.div
+      whileHover={{ scale: 1.04 }}
+      className="bg-white rounded-2xl shadow-md overflow-hidden"
+    >
+      <img
+        src={product.image}
+        className="h-52 w-full object-cover"
+      />
+      <div className="p-4">
+        <h3 className="font-semibold">{product.title}</h3>
+        <p className="font-bold mt-1">${product.price}</p>
+        <Link
+          to={`/product/${product.id}`}
+          className="inline-block mt-3 text-indigo-600"
+        >
+          View
+        </Link>
       </div>
-
-      <button
-        style={{marginTop:10, background: liked ? "#ef4444" : "#e5e7eb"}}
-        onClick={() => toggle(product)}
-      >
-        ♥
-      </button>
-    </div>
+    </motion.div>
   );
 }
